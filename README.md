@@ -13,16 +13,16 @@ MongoDB – Database
 OpenAI – AI response generation
 Python AsyncIO – Parallel processing (bulk requests)
 
-# Database Structure
+# Database Structure (MongoDB)
 1. prompts collection
 
-Stores reusable AI prompt templates.
+Stores AI prompt templates in database.
 {
   "_id": "Education_Prompt",
   "template": "You are an expert in education domain. Answer the following: {{userInput}}"
 }
 
-2. history collection
+2. history collection 
 
 Stores all user interactions.
 {
@@ -87,4 +87,38 @@ python3 app.py
 
 Server runs on :
 http://localhost:5000
+
+# Postman
+
+For Single Response 
+post : http://127.0.0.1:5000/ask
+body raw json
+input:
+{
+  "userInput": "How much should I score in each subject to pass CA final?"
+}
+
+output:
+{
+    "response": "This is a fake response for testing purposes. Replace this with actual OpenAI API call in production.How much should I score in each subject to pass CA final?"
+}
+
+
+For Multiple and Bulk 
+Post : http://127.0.0.1:5000/bulk-ask
+body raw json
+input:
+{
+  "userInputs": [
+    "What is CA final passing marks?"
+  ]
+}
+output:
+{
+    "responses": [
+        "This is a fake response for testing purpose: What is CA final passing marks?"
+    ]
+}
+
+
 
