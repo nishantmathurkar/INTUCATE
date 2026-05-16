@@ -88,5 +88,3 @@ python3 app.py
 Server runs on :
 http://localhost:5000
 
-# INTUCATE
-# INTUCATE
